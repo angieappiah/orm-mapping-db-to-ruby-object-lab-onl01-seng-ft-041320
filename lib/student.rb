@@ -27,6 +27,15 @@ class Student
   self.new_from_db(student_row)
   end
 
+  def self.students_below_12th_grade
+     sql = <<-SQL
+     SELECT * 
+     FROM students 
+     WHERE students.grade < 12
+     SQL
+     DB[:conn].execute(sql).collect do |row|
+       self.new_from_db(row)
+     end
 
   def save
     sql = <<-SQL
