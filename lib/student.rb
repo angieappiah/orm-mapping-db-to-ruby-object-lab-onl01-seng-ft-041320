@@ -24,7 +24,7 @@ class Student
     s.map do |i|
       self.new_from_db(i)
     end
-    
+
   end
 
   def self.find_by_name(name)
@@ -66,7 +66,7 @@ class Student
     SQL
 
     DB[:conn].execute(sql)
-@@ -40,4 +64,47 @@ def self.drop_table
+  def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
