@@ -22,6 +22,9 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
+  sql = "SELECT * FROM students WHERE name = ?"
+  student_row = DB[:conn].execute(sql, name)[0]
+  self.new_from_db(student_row)
   end
 
   def save
