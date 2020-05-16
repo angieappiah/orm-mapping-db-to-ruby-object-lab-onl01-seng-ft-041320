@@ -28,7 +28,7 @@ class Student
   student_row = DB[:conn].execute(sql, name)[0]
   self.new_from_db(student_row)
   end
-  
+
   def self.count_all_students_in_grade_9
     sql = <<-SQL
     SELECT *
@@ -53,7 +53,7 @@ class Student
 
    def self.first_student_in_grade_10
        sql = <<-SQL
-       SELECT * 
+       SELECT *
        FROM students
        WHERE students.grade = 10
        LIMIT 1
